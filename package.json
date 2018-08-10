@@ -1,0 +1,17 @@
+{
+  "name": "sawk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/sawk.umd.js",
+  "module": "dist/sawk.m.js",
+  "source": "src/sawk.js",
+  "scripts": {
+    "build": "microbundle src --sourcemap false"
+  },
+  "keywords": [],
+  "author": "Ryan Hinchey <rlhinchey@gmail.com> (http://twitter.com/ryhinchey)",
+  "license": "MIT",
+  "devDependencies": {
+    "microbundle": "0.6.0"
+  }
+}
