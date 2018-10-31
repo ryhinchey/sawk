@@ -1,7 +1,5 @@
-# Sawk 
+# Sawk  [![Build Status](https://travis-ci.org/ryhinchey/sawk.svg?branch=master)](https://travis-ci.org/ryhinchey/sawk)
 > A tiny and resilient websocket client for the browser
-
-
 
 ## Installation
 ```sh
