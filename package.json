@@ -1,6 +1,6 @@
 {
   "name": "sawk",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A tiny and resilient websocket client for the browser",
   "main": "dist/sawk.js",
   "source": "src/sawk.js",
