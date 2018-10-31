@@ -5,7 +5,7 @@
   "main": "dist/sawk.js",
   "source": "src/sawk.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "build": "rollup -c"
   },
   "files": [
