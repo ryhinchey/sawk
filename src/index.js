@@ -9,8 +9,8 @@ class Sawk {
 
 	connect() {
 		this.connection.onopen = () => {
-			this.connection.onclose = () => this.onClose && this.onClose(this.connection);
-			this.connection.onmessage = (e) => this.onMessage && this.onMessage(e.data);
+			this.connection.onclose = (e) => this.onClose && this.onClose(e);
+			this.connection.onmessage = (e) => this.onMessage && this.onMessage(e);
 			this.connection.onerror = (e) => this.onError && this.onError(e);
 			this.connection.onopen = this.onOpen();
 		}
@@ -36,14 +36,15 @@ class Sawk {
 	}
 
 	send(message) {
+		if (typeof message === 'object') {
+			message = JSON.stringify(message);
+		}
+
 		if (this.connection.readyState !== 1) {
 			this.messageQueue.push(message);
 			return;
 		}
 
-		if (typeof (message) === 'object') {
-			message = JSON.stringify(message);
-		}
 		this.connection.send(message);
 	}
 }

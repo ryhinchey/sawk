@@ -14,29 +14,21 @@ npm install sawk --save
 Sawk provides basic utilities wrapped around the native WebSocket interface. If messages are sent before the connection is open, Sawk will queue those messages to be sent on the `open` event.  Sawk also provides a `reconnect` function which when combined with the `onClose` handler, allows you to reconnect a closed connection.
 
 ```javascript
-const socket = new Sawk('wss://echo.websocket.org/', true)
+import sawk from 'sawk';
 
-socket.onMessage = (message) => {
-  console.log('onMessage', message);
+const socket = new Sawk('wss://echo.websocket.org/')
+
+socket.onMessage = (event) => {
 };
 
-socket.onError = (data) => {
-  console.error(data);
+socket.onError = (event) => {
 };
 
-socket.onClose = () => {
+socket.onClose = (event) => {
   socket.reconnect();
 }
-socket.send('hi');
-socket.send('wow');
-socket.send('cool');
 
-
-setTimeout(() => {
-  socket.close();
-  socket.send('after close');
-  socket.send('after close again');
-}, 1000)
+socket.send('a message');
 
 ```
 
@@ -62,7 +54,7 @@ Distributed under the MIT license. See ``LICENSE.txt`` for more information.
 ## Contributing
 
 1. Fork it (<https://github.com/rhinchey/sawk/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
+2. Create your feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Add a new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
 5. Create a new Pull Request
